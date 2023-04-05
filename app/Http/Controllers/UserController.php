@@ -21,7 +21,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ];
-        if(!Auth::attempt($credentials)) {
+        if(!Auth::attempt($credentials)) { // if credentials is not correct.
             return back()->withErrors(['credentials is not valid']);
         }
         return redirect()->route('auth.main');

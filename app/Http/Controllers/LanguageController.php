@@ -11,12 +11,12 @@ class LanguageController extends Controller
     */
     public function change() {
         if(session()->has('locale')) {
-            if(session()->get('locale') == 'ar') {
+            if(session()->get('locale') == 'ar') { // if current language is arabic, change it to english
                 session()->put('locale', 'en');
-            } else {
+            } else { // if current language is english, change it to arabic
                 session()->put('locale', 'ar');
             }
-        } else {
+        } else { // the default language is english
             session()->put('locale', 'en');
         }
 

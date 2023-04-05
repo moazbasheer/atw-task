@@ -13,6 +13,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
+        // paginating the employees list.
         $employees = Employee::paginate(10);
         return view('employees.index', compact('employees'));
     }
@@ -22,6 +23,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
+        // getting the companies from the database to choose from them.
         $companies = Company::get();
         return view('employees.create', compact('companies'));
     }
@@ -31,6 +33,7 @@ class EmployeeController extends Controller
      */
     public function store(EmployeeRequest $request)
     {
+        // adding employee in the database.
         Employee::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -54,6 +57,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
+        // getting companies from the database to choose from them.
         $companies = Company::get();
         return view('employees.edit', compact('employee', 'companies'));
     }
@@ -63,6 +67,7 @@ class EmployeeController extends Controller
      */
     public function update(EmployeeRequest $request, Employee $employee)
     {
+        // updating employee in the database.
         $employee->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -78,6 +83,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
+        // deleting the employee from the database.
         $employee->delete();
         return back();
     }
