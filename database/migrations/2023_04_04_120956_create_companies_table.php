@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('website')->nullable();
+            $table->string('name'); // required name
+            $table->string('email')->nullable(); // non-required email
+            $table->string('logo')->nullable(); // non-required logo (contains logo name)
+            $table->string('website')->nullable(); // non-required website
             $table->timestamps();
         });
     }

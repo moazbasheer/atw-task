@@ -13,6 +13,7 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
+        // inserting admin account using seeders.
         User::create([
             'name' => 'admin',
             'email' => 'admin@admin.com',

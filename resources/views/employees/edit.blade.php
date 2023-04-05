@@ -21,15 +21,10 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">{{Auth::user()->email}}</a>
                 </li>
-                @if (App::getLocale() == 'ar')
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route(Route::currentRouteName(), 'en')">{{__('messages.change-language')}}</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route(Route::currentRouteName(), 'ar')">{{__('messages.change-language')}}</a>
-                    </li>
-                @endif
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/change-language">{{__('messages.change-language')}} ({{session()->get('locale') == 'ar'?'en': 'ar'}})</a>
+                </li>
+
             </ul>
             <form class="d-flex" role="search" method="POST" action="{{route('logout')}}">
                 @csrf

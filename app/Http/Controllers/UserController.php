@@ -7,10 +7,15 @@ use App\Http\Requests\LoginRequest;
 use Auth;
 class UserController extends Controller
 {
+    /*
+        This function renders the login page.
+    */
     public function login() {
         return view('auth.login');
     }
-
+    /*
+        This function handles the post request of the form in the login page.
+    */
     public function postLogin(LoginRequest $request) {
         $credentials = [
             'email' => $request->email,
@@ -21,11 +26,16 @@ class UserController extends Controller
         }
         return redirect()->route('auth.main');
     }
+    /*
+        This function renders the main page.
+    */
 
     public function renderMainPage() {
         return view('main-page');
     }
-
+    /*
+        This function handles the logout process.
+    */
     public function logout() {
         Auth::logout();
         return redirect()->route('auth.login');

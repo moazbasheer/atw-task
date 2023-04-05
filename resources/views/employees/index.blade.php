@@ -22,7 +22,7 @@
                 <a class="nav-link active" aria-current="page" href="#">{{Auth::user()->email}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/change-language">{{App::getLocale() == 'en'?'ar':'en'}}</a>
+            <a class="nav-link active" aria-current="page" href="/change-language">{{__('messages.change-language')}} ({{session()->get('locale') == 'ar'?'en': 'ar'}})</a>
             </li>
         </ul>
         <form class="d-flex" role="search" method="POST" action="{{route('logout')}}">
